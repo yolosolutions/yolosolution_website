@@ -11,9 +11,19 @@ export function ContactForm() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // Wire this up to your form backend / email service of choice
-    // (e.g. Netlify Forms, Formspree, or a serverless function).
-    setSubmitted(true)
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const body = new URLSearchParams()
+    body.append('form-name', 'contact')
+    data.forEach((value, key) => body.append(key, value.toString()))
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString(),
+    })
+      .then(() => setSubmitted(true))
+      .catch(() => setSubmitted(true))
   }
 
   return (
@@ -38,7 +48,7 @@ export function ContactForm() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+              <form name="contact" onSubmit={handleSubmit} className="space-y-5" noValidate>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
                     <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-charcoal-700">
