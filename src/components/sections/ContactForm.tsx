@@ -8,12 +8,14 @@ const fieldClasses =
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
     const body = new URLSearchParams()
+    setSubmitError(false)
     body.append('form-name', 'contact')
     data.forEach((value, key) => body.append(key, value.toString()))
 
@@ -22,8 +24,11 @@ export function ContactForm() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString(),
     })
-      .then(() => setSubmitted(true))
-      .catch(() => setSubmitted(true))
+      .then((response) => {
+        if (!response.ok) throw new Error('Form submission failed')
+        setSubmitted(true)
+      })
+      .catch(() => setSubmitError(true))
   }
 
   return (
@@ -94,6 +99,11 @@ export function ContactForm() {
                 >
                   Send Message <Send className="h-4 w-4" />
                 </button>
+                {submitError && (
+                  <p role="alert" className="text-sm text-red-600">
+                    We couldn't send your message. Please try again or contact us directly by WhatsApp, phone or email.
+                  </p>
+                )}
               </form>
             )}
           </div>

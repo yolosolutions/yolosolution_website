@@ -15,40 +15,39 @@ export function Hero() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-royal-100 bg-royal-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-royal-600">
-            Web Development Agency · India
+            Digital Agency · India
           </span>
           <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-charcoal-800 sm:text-5xl lg:text-6xl">
-            Websites That Help <span className="text-royal-500">Businesses Grow</span>
+            Websites &amp; AI Automation for{' '}
+            <span className="text-royal-500">Growing Businesses</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-charcoal-400">
-            Get a website that loads quickly, looks great on every device, and helps
-            your business build credibility online — designed and built end to end
-            by YOLO Solutions.
+            We build modern websites, e-commerce solutions and smart automation
+            that help businesses strengthen their online presence, generate
+            enquiries and simplify repetitive work.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Button to="/contact" variant="primary" icon={<ArrowRight className="h-4 w-4" />}>
-              Get Free Quote
+              Start Your Project
             </Button>
             <Button to="/portfolio" variant="secondary" icon={<Eye className="h-4 w-4" />}>
               View Our Work
             </Button>
           </div>
 
-          <div className="mt-12 flex items-center gap-8 border-t border-charcoal-100 pt-8">
+          <div className="mt-12 grid grid-cols-3 gap-3 border-t border-charcoal-100 pt-8 sm:gap-8">
             <div>
-              <p className="font-display text-2xl font-bold text-charcoal-800">5</p>
-              <p className="text-sm text-charcoal-400">Projects completed</p>
+              <p className="font-display text-xl font-bold text-charcoal-800 sm:text-2xl">6+</p>
+              <p className="text-xs text-charcoal-400 sm:text-sm">Projects Completed</p>
             </div>
-            <div className="h-8 w-px bg-charcoal-100" />
             <div>
-              <p className="font-display text-2xl font-bold text-charcoal-800">2</p>
-              <p className="text-sm text-charcoal-400">Currently live</p>
+              <p className="font-display text-xl font-bold text-charcoal-800 sm:text-2xl">India</p>
+              <p className="text-xs text-charcoal-400 sm:text-sm">Based</p>
             </div>
-            {/* <div className="h-8 w-px bg-charcoal-100" /> */}
-            {/* <div>
-              <p className="font-display text-2xl font-bold text-charcoal-800">1–2</p>
-              <p className="text-sm text-charcoal-400">New clients / month</p>
-            </div> */}
+            <div>
+              <p className="font-display text-xl font-bold text-charcoal-800 sm:text-2xl">Worldwide</p>
+              <p className="text-xs text-charcoal-400 sm:text-sm">Working</p>
+            </div>
           </div>
         </motion.div>
 

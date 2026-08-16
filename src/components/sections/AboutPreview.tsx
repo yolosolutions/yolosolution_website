@@ -17,13 +17,13 @@ export function AboutPreview() {
             Who We Are
           </span>
           <h2 className="font-display text-3xl font-bold tracking-tight text-charcoal-800 sm:text-4xl">
-            A small team focused on one thing: your online presence
+            A small agency focused on practical business growth
           </h2>
           <p className="mt-5 text-base leading-relaxed text-charcoal-400 sm:text-lg">
-            YOLO Solutions helps small businesses, startups, and service providers
-            establish a strong online presence through modern, easy-to-use
-            websites. We keep our process simple and our communication direct, so
-            you always know what's happening with your project.
+            YOLO Solutions builds business-focused websites, e-commerce
+            experiences and automation for growing companies. We combine modern,
+            responsive development with an automation mindset and direct
+            communication—based in India and working worldwide.
           </p>
           <div className="mt-8">
             <Button to="/about" variant="secondary" icon={<ArrowRight className="h-4 w-4" />}>
@@ -40,10 +40,10 @@ export function AboutPreview() {
           className="grid grid-cols-2 gap-4"
         >
           {[
-            { label: 'Projects Completed', value: '5' },
-            { label: 'Websites Live', value: '2' },
-            { label: 'Avg. Turnaround', value: '2 wks' },
-            { label: 'Client Focus', value: '100%' },
+            { label: 'Projects Completed', value: '6+' },
+            { label: 'Based In', value: 'India' },
+            { label: 'Working', value: 'Worldwide' },
+            { label: 'Communication', value: 'Direct' },
           ].map((stat) => (
             <div
               key={stat.label}

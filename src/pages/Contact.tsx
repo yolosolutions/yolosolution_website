@@ -7,8 +7,8 @@ export default function Contact() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Let's build something great together"
-        description="Tell us about your business and what you need — we'll reply with a free, no-obligation quote."
+        title="Start your project"
+        description="Tell us what you're trying to build or improve, and we'll discuss the right solution for your business."
       />
       <ContactForm />
       <FAQSection />

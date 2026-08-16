@@ -7,19 +7,19 @@ const values = [
     icon: Target,
     title: 'Outcomes over technology',
     description:
-      "We don't sell frameworks or buzzwords — we sell websites that bring in customers and make your business look credible.",
+      'We focus on useful digital solutions that strengthen credibility, support enquiries and simplify how a business works.',
   },
   {
     icon: Heart,
     title: 'Built for small businesses',
     description:
-      'Every decision, from pricing to timelines, is made with small business owners and startups in mind — not enterprise budgets.',
+      'Modern, responsive development is shaped around each business, its customers and its priorities.',
   },
   {
     icon: ShieldCheck,
     title: 'Clear communication',
     description:
-      "You'll always know what stage your project is at. No jargon, no disappearing acts, no surprises at launch.",
+      "You'll always know what stage your project is at, with direct communication and a clear path to launch.",
   },
 ]
 
@@ -35,12 +35,12 @@ export function AboutContent() {
             transition={{ duration: 0.6 }}
             className="text-base leading-relaxed text-charcoal-500 sm:text-lg"
           >
-            YOLO Solutions is a website development agency based in India. We help
-            small businesses, local shops, startups, and independent
-            professionals establish a strong, trustworthy presence online — with
-            websites that are fast, mobile-friendly, and easy to update. We've
-            completed 5 projects so far, with 3 currently live, and our goal is
-            simple: help 1–2 new businesses grow online every month.
+            YOLO Solutions is a small digital agency based in India and working
+            worldwide. We create business-focused websites, e-commerce solutions
+            and smart automation that help growing companies improve their online
+            presence, handle enquiries and reduce repetitive work. With 6+
+            projects completed, we keep the process practical and communication
+            direct from first conversation to launch.
           </motion.p>
         </div>
 

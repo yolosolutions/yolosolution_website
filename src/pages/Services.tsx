@@ -7,8 +7,8 @@ export default function Services() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Websites built around what your business needs"
-        description="From a simple landing page to a full business website, every project is scoped and priced around your goals — not a one-size-fits-all package."
+        title="Websites, e-commerce and automation"
+        description="Practical digital solutions scoped around your business goals, customers and day-to-day operations."
       />
       <ServiceCards />
       <CTASection />

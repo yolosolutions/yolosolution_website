@@ -7,8 +7,8 @@ export default function Portfolio() {
     <>
       <PageHeader
         eyebrow="Portfolio"
-        title="A look at what we've built"
-        description="A selection of recent projects — from business websites to landing pages — built for real clients with real goals."
+        title="Selected Work"
+        description="A selection of real projects built around business credibility, usability and customer enquiries."
       />
       <PortfolioGrid />
       <CTASection />

@@ -18,15 +18,15 @@ export function CTASection() {
           <div className="pointer-events-none absolute -bottom-12 -left-10 h-48 w-48 rounded-full bg-gold-400/20" />
 
           <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Ready for a website that works as hard as you do?
+            Have a project in mind?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-royal-50 sm:text-lg">
-            Tell us about your business and we'll get back to you with a free,
-            no-obligation quote within one business day.
+            Tell us what you're trying to build or improve. Let's discuss the
+            right solution for your business.
           </p>
           <div className="mt-8 flex justify-center">
             <Button to="/contact" variant="secondary" icon={<ArrowRight className="h-4 w-4" />}>
-              Get Your Free Quote
+              Start Your Project
             </Button>
           </div>
         </motion.div>

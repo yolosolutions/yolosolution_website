@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { Briefcase, LayoutTemplate, Rocket, RefreshCw, Wrench, User } from 'lucide-react'
+import { Bot, Code2, LayoutTemplate, RefreshCw, ShoppingCart, Wrench } from 'lucide-react'
 
 export interface Service {
   icon: LucideIcon
@@ -10,25 +10,32 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    icon: Briefcase,
-    title: 'Business Websites',
+    icon: Code2,
+    title: 'Web Development',
     description:
-      'A professional website that tells customers who you are, what you offer, and why they should choose you.',
-    features: ['Up to 6 pages', 'Mobile-friendly design', 'Contact & inquiry forms', 'Google Maps integration'],
+      'Modern, responsive websites built to improve business credibility and make it easier for customers to enquire.',
+    features: ['Business websites', 'Landing pages', 'Responsive development', 'Enquiry-focused layouts'],
   },
   {
-    icon: User,
-    title: 'Portfolio Websites',
+    icon: ShoppingCart,
+    title: 'E-Commerce Development',
     description:
-      'A polished showcase for your work, built to help freelancers and creatives win their next client.',
-    features: ['Project galleries', 'Case study layouts', 'Resume / CV section', 'Social proof & testimonials'],
+      'Online stores and e-commerce experiences designed around products, usability and conversions.',
+    features: ['Product-focused design', 'Mobile shopping experience', 'Storefront development', 'Conversion-ready structure'],
+  },
+  {
+    icon: Bot,
+    title: 'AI & Business Automation',
+    description:
+      'Smart automation for repetitive workflows, enquiries, lead handling and business operations.',
+    features: ['Workflow automation', 'Enquiry handling', 'Lead routing', 'Business process support'],
   },
   {
     icon: LayoutTemplate,
     title: 'Landing Pages',
     description:
-      'A focused, high-converting single page built for one goal — signups, sales, or bookings.',
-    features: ['Conversion-focused layout', 'Fast load speed', 'A/B-test ready sections', 'Lead capture forms'],
+      'Focused landing pages designed around a single campaign, offer or enquiry goal.',
+    features: ['Conversion-focused layout', 'Fast load speed', 'Campaign-ready sections', 'Lead capture forms'],
   },
   {
     icon: RefreshCw,
@@ -59,7 +66,7 @@ export const services: Service[] = [
     features: ['Content updates', 'Security & backups', 'Bug fixes', 'Performance monitoring'],
   },
   {
-    icon: Rocket,
+    icon: Code2,
     title: 'Custom Web Applications',
     description:
       'Need something beyond a standard website? We build custom tools tailored to your business workflow.',

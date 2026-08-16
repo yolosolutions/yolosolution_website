@@ -8,8 +8,8 @@ export default function About() {
     <>
       <PageHeader
         eyebrow="About Us"
-        title="Helping businesses look credible online"
-        description="We're a small, focused web development agency based in India — here's what drives how we work."
+        title="A digital agency built around business needs"
+        description="Based in India and serving businesses worldwide with modern development, smart automation and direct communication."
       />
       <AboutContent />
       <Process />

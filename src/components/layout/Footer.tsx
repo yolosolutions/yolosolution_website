@@ -11,10 +11,9 @@ const quickLinks = [
 ]
 
 const serviceLinks = [
-  { label: 'Business Websites', to: '/services' },
-  { label: 'Portfolio Websites', to: '/services' },
-  { label: 'Landing Pages', to: '/services' },
-  { label: 'Website Redesign', to: '/services' },
+  { label: 'Web Development', to: '/services' },
+  { label: 'E-Commerce Development', to: '/services' },
+  { label: 'AI & Business Automation', to: '/services' },
 ]
 
 export function Footer() {
@@ -24,8 +23,8 @@ export function Footer() {
         <div>
           <Logo dark />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-charcoal-300">
-            We design and build websites that help small businesses and startups
-            look credible online and win more customers.
+            Websites, e-commerce and smart automation for growing businesses in
+            India and worldwide.
           </p>
         </div>
 

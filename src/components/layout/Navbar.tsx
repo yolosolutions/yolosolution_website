@@ -63,7 +63,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <Button to="/contact" variant="primary">
-            Get Free Quote
+            Start Your Project
           </Button>
         </div>
 
@@ -103,7 +103,7 @@ export function Navbar() {
                 </NavLink>
               ))}
               <Button to="/contact" variant="primary" className="mt-2 w-full">
-                Get Free Quote
+                Start Your Project
               </Button>
             </Container>
           </motion.div>
