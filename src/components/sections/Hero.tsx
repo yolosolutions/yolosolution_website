@@ -37,15 +37,15 @@ export function Hero() {
 
           <div className="mt-12 grid grid-cols-3 gap-3 border-t border-charcoal-100 pt-8 sm:gap-8">
             <div>
-              <p className="font-display text-xl font-bold text-charcoal-800 sm:text-2xl">6+</p>
+              <p className="font-display text-[clamp(0.875rem,4vw,1.5rem)] font-bold text-charcoal-800">6+</p>
               <p className="text-xs text-charcoal-400 sm:text-sm">Projects Completed</p>
             </div>
             <div>
-              <p className="font-display text-xl font-bold text-charcoal-800 sm:text-2xl">India</p>
+              <p className="font-display text-[clamp(0.875rem,4vw,1.5rem)] font-bold text-charcoal-800">India</p>
               <p className="text-xs text-charcoal-400 sm:text-sm">Based</p>
             </div>
-            <div>
-              <p className="font-display text-xl font-bold text-charcoal-800 sm:text-2xl">Worldwide</p>
+            <div className="min-w-0">
+              <p className="font-display text-[clamp(0.875rem,4vw,1.5rem)] font-bold text-charcoal-800">Worldwide</p>
               <p className="text-xs text-charcoal-400 sm:text-sm">Working</p>
             </div>
           </div>

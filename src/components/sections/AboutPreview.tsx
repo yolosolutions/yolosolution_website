@@ -47,9 +47,11 @@ export function AboutPreview() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="rounded-2xl border border-charcoal-100 bg-white p-6 text-center shadow-soft"
+              className="min-w-0 rounded-2xl border border-charcoal-100 bg-white p-4 text-center shadow-soft sm:p-6"
             >
-              <p className="font-display text-3xl font-bold text-royal-500">{stat.value}</p>
+              <p className="font-display text-[clamp(1.125rem,5vw,1.875rem)] font-bold text-royal-500">
+                {stat.value}
+              </p>
               <p className="mt-1 text-sm text-charcoal-400">{stat.label}</p>
             </div>
           ))}
