@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { Reveal } from '@/components/ui/Reveal'
 
@@ -22,6 +23,11 @@ export function SectionHeading({
 }) {
   const dark = tone === 'dark'
   const words = title.split(' ')
+  // The heading itself (never translated or clipped) is what we watch. Watching the words
+  // directly fails: they start hidden below a clipping mask, so the browser reports them as
+  // never on screen and they would stay invisible (this broke headings on phones).
+  const ref = useRef<HTMLHeadingElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-40px' })
   return (
     <div className={cn('max-w-2xl', align === 'center' ? 'mx-auto text-center' : 'text-left', className)}>
       {eyebrow && (
@@ -38,6 +44,7 @@ export function SectionHeading({
         </Reveal>
       )}
       <h2
+        ref={ref}
         aria-label={title}
         className={cn(
           'text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-[2.6rem] lg:leading-[1.15]',
@@ -50,8 +57,7 @@ export function SectionHeading({
               <motion.span
                 className="inline-block"
                 initial={{ y: '112%' }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
+                animate={{ y: inView ? 0 : '112%' }}
                 transition={{ duration: 0.7, ease: EASE, delay: i * 0.05 }}
               >
                 {word}
