@@ -2,63 +2,35 @@ export interface Project {
   name: string
   category: string
   description: string
-  url?: string
-  live: boolean
+  highlights: string[]
+  tags: string[]
+  url: string
+  image: string
+  /** Background behind the artwork so each screenshot reads cleanly */
+  surface: string
 }
 
 export const projects: Project[] = [
-  // {
-  //   name: 'Aarav Interiors',
-  //   category: 'Business Website',
-  //   description:
-  //     'A warm, image-led site for a home interiors studio, built to showcase past projects and drive consultation bookings.',
-  //   url: 'https://example.com',
-  //   live: true,
-  // },
-  // {
-  //   name: 'Nimbus Fitness Studio',
-  //   category: 'Business Website',
-  //   description:
-  //     'A bold, energetic website for a boutique gym, with class schedules, trainer profiles, and membership signup.',
-  //   url: 'https://example.com',
-  //   live: true,
-  // },
-  // {
-  //   name: 'Priya Kapoor — Photographer',
-  //   category: 'Portfolio Website',
-  //   description:
-  //     'A minimal, gallery-first portfolio built to let photography do the talking, with fast-loading image grids.',
-  //   url: 'https://example.com',
-  //   live: true,
-  // },
-  // {
-  //   name: 'LaunchPad SaaS',
-  //   category: 'Landing Page',
-  //   description:
-  //     'A conversion-focused landing page for an early-stage SaaS product, built to turn visitors into demo signups.',
-  //   live: false,
-  // },
-  // {
-  //   name: 'Spice Route Café',
-  //   category: 'Business Website',
-  //   description:
-  //     'A friendly, menu-first website for a local café, with online ordering links and location details.',
-  //   live: false,
-  // },
   {
     name: 'Navigate Aviation Academy',
     category: 'Business Website',
     description:
-      'A multi-section site for an aviation training institute in Trichy, covering courses, trainers, and student success stories, with a built-in enrollment form to convert visitors into applicants.',
+      'A multi-section website for an aviation training institute in Trichy, presenting courses, trainers and student success stories, with a built-in enrollment form that turns visitors into applicants.',
+    highlights: ['Course and trainer showcase', 'Student success stories', 'Built-in enrollment form'],
+    tags: ['Education', 'Lead generation', 'Responsive'],
     url: 'https://navigateaviationacademy.com/',
-    live: true,
+    image: '/projects/navigate-aviation-academy.jpg',
+    surface: 'bg-white',
   },
   {
     name: 'Voyage Enterprises',
     category: 'Landing Page',
     description:
-      'A conversion-focused landing page for a business finance company, built around a clear funding pitch, trust stats, and one-tap WhatsApp / call-to-apply for fast loan enquiries.',
+      'A conversion-focused landing page for a business finance company, built around a clear funding pitch, trust indicators and one-tap WhatsApp or call-to-apply for fast loan enquiries.',
+    highlights: ['Clear funding pitch', 'Trust stats section', 'One-tap WhatsApp / call to apply'],
+    tags: ['Finance', 'Conversion-focused', 'Mobile-first'],
     url: 'https://voyagenterprises.com/',
-    live: true,
+    image: '/projects/voyage-enterprises.png',
+    surface: 'bg-brand-50',
   },
 ]

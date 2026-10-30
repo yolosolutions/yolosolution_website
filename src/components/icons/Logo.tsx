@@ -1,18 +1,17 @@
 import { cn } from '@/lib/utils'
 
 /**
- * Real brand logo — served from /public/logo.png.
- * The wordmark is baked into the artwork itself, so no separate text label
- * is rendered alongside it. The `dark` prop is accepted for API-compatibility
- * with places the logo sits on a dark background, since the artwork already
- * has a transparent background and reads fine on both.
+ * Brand logo. `onDark` swaps to a light version (white wordmark, gold chevron)
+ * for use on navy backgrounds; both are cropped from /public/logo.png.
  */
-export function Logo({ className }: { className?: string; dark?: boolean }) {
+export function Logo({ className, onDark = false }: { className?: string; onDark?: boolean }) {
   return (
     <img
-      src="/logo.png"
+      src={onDark ? '/logo-light.png' : '/logo-mark.png'}
       alt="YOLO Solutions"
-      className={cn('h-12 w-auto object-contain', className)}
+      width={472}
+      height={190}
+      className={cn('h-11 w-auto object-contain sm:h-12', className)}
     />
   )
 }

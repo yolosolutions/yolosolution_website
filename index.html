@@ -4,42 +4,75 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00112B" />
 
-    <title>YOLO Solutions | Websites &amp; AI Automation</title>
+    <title>YOLO Solutions | Website, App &amp; Software Development Agency</title>
     <meta
       name="description"
-      content="YOLO Solutions builds modern websites, e-commerce solutions and business automation for growing businesses in India and worldwide."
+      content="YOLO Solutions is a web and software development agency building websites, e-commerce stores, web and mobile apps and business automation for growing companies in India and worldwide."
     />
-    <meta name="keywords" content="website development, business websites, landing pages, portfolio websites, web design agency India" />
+    <meta
+      name="keywords"
+      content="web development agency, website development, web application development, mobile app development, e-commerce development, UI/UX design, business automation, software company India"
+    />
     <meta name="author" content="YOLO Solutions" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="YOLO Solutions | Websites &amp; AI Automation" />
+    <meta property="og:site_name" content="YOLO Solutions" />
+    <meta property="og:title" content="YOLO Solutions | Website, App &amp; Software Development Agency" />
     <meta
       property="og:description"
-      content="YOLO Solutions builds modern websites, e-commerce solutions and business automation for growing businesses in India and worldwide."
+      content="We build websites, e-commerce stores, web and mobile apps and smart automation that help businesses grow."
     />
+    <meta property="og:image" content="/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="YOLO Solutions | Websites &amp; AI Automation" />
+    <meta name="twitter:title" content="YOLO Solutions | Website, App &amp; Software Development Agency" />
     <meta
       name="twitter:description"
-      content="YOLO Solutions builds modern websites, e-commerce solutions and business automation for growing businesses in India and worldwide."
+      content="We build websites, e-commerce stores, web and mobile apps and smart automation that help businesses grow."
     />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "YOLO Solutions",
+        "description": "Web and software development agency building websites, e-commerce stores, web and mobile applications and business automation.",
+        "email": "yolosolutions01@gmail.com",
+        "telephone": "+91 63792 93492",
+        "foundingDate": "2024",
+        "areaServed": "Worldwide",
+        "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+        "sameAs": ["https://instagram.com/yolosolutions"],
+        "knowsAbout": [
+          "Website development",
+          "Web application development",
+          "Mobile app development",
+          "E-commerce development",
+          "UI/UX design",
+          "Business automation"
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-white text-charcoal-800 font-body antialiased">
-    <form name="contact" data-netlify="true" hidden>
+  <body class="bg-white font-body text-ink-800 antialiased">
+    <!-- Static copy of the contact form so Netlify can detect it at build time -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="text" name="business" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
+      <input type="text" name="service" />
       <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
     </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

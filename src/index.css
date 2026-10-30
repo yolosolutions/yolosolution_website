@@ -3,7 +3,27 @@
 @tailwind utilities;
 
 html {
+  /* matches the hero/footer navy so first paint and overscroll never flash white */
+  background-color: #00112b;
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #ffbd59;
+  color: #0e1626;
+}
+
+:focus-visible {
+  outline: 2px solid #4d82e0;
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -19,21 +39,64 @@ html {
   }
 }
 
-body {
-  overflow-x: hidden;
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Soft colored glows used behind dark hero sections */
+  .glow-blue {
+    background: radial-gradient(closest-side, rgba(26, 95, 196, 0.55), transparent);
+  }
+  .glow-gold {
+    background: radial-gradient(closest-side, rgba(255, 189, 89, 0.28), transparent);
+  }
 }
 
-::selection {
-  background-color: #1e63d6;
-  color: white;
+/* One reusable "liquid glass" material: frosted fill + gradient hairline edge */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.03);
+  background-blend-mode: luminosity;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.2px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-:focus-visible {
-  outline: 2px solid #1e63d6;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-.container-page {
-  @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10;
+/* Fine film grain over footage; unifies video and UI and hides banding */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

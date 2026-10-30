@@ -1,58 +1,69 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Logo } from '@/components/icons/Logo'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { navLinks } from '@/data/site'
 import { cn } from '@/lib/utils'
 
-const links = [
-  { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Portfolio', to: '/portfolio' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
-]
-
+/**
+ * Every page opens with a dark hero, so the bar starts transparent with the
+ * light logo and turns into a white bar once the page is scrolled.
+ */
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
     setOpen(false)
-  }, [])
+  }, [pathname])
+
+  const light = scrolled || open
 
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        scrolled
-          ? 'bg-white/80 shadow-soft backdrop-blur-md'
-          : 'bg-white/0'
+        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        light ? 'border-b border-ink-100 bg-white/90 shadow-soft backdrop-blur-lg' : 'border-b border-transparent bg-transparent'
       )}
     >
-      <Container className="flex h-20 items-center justify-between">
+      <Container className="flex h-[72px] items-center justify-between">
         <NavLink to="/" aria-label="YOLO Solutions home">
-          <Logo />
+          <Logo onDark={!light} />
         </NavLink>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {links.map((link) => (
+        <nav
+          className={cn(
+            'hidden items-center gap-1 rounded-full p-1.5 lg:flex',
+            !light && 'liquid-glass'
+          )}
+          aria-label="Primary"
+        >
+          {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
+              end={link.to === '/'}
               className={({ isActive }) =>
                 cn(
-                  'rounded-full px-4 py-2 text-sm font-medium text-charcoal-600 transition-colors hover:text-royal-600',
-                  isActive && 'text-royal-600'
+                  'rounded-full px-4 py-2 text-sm font-medium transition-colors',
+                  light
+                    ? isActive
+                      ? 'bg-brand-50 text-brand-600'
+                      : 'text-ink-600 hover:text-brand-600'
+                    : isActive
+                      ? 'bg-white/10 text-white'
+                      : 'text-white/75 hover:text-white'
                 )
               }
             >
@@ -62,13 +73,13 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button to="/contact" variant="primary">
-            Start Your Project
+          <Button to="/contact" variant={light ? 'primary' : 'accent'}>
+            Start a Project
           </Button>
         </div>
 
         <button
-          className="rounded-full p-2 text-charcoal-700 lg:hidden"
+          className={cn('rounded-full p-2 lg:hidden', light ? 'text-ink-800' : 'text-white')}
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -84,26 +95,26 @@ export function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-charcoal-100 bg-white lg:hidden"
+            className="overflow-hidden border-t border-ink-100 bg-white lg:hidden"
           >
             <Container className="flex flex-col gap-1 py-4">
-              {links.map((link) => (
+              {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
-                  onClick={() => setOpen(false)}
+                  end={link.to === '/'}
                   className={({ isActive }) =>
                     cn(
-                      'rounded-xl px-4 py-3 text-sm font-medium text-charcoal-600',
-                      isActive && 'bg-royal-50 text-royal-600'
+                      'rounded-xl px-4 py-3 text-[15px] font-medium text-ink-700',
+                      isActive && 'bg-brand-50 text-brand-600'
                     )
                   }
                 >
                   {link.label}
                 </NavLink>
               ))}
-              <Button to="/contact" variant="primary" className="mt-2 w-full">
-                Start Your Project
+              <Button to="/contact" variant="primary" size="lg" className="mt-3 w-full">
+                Start a Project
               </Button>
             </Container>
           </motion.div>

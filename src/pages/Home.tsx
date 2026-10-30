@@ -1,20 +1,30 @@
 import { Hero } from '@/components/sections/Hero'
-import { HomeServices } from '@/components/sections/HomeServices'
-import { HomePortfolio } from '@/components/sections/HomePortfolio'
-import { AboutPreview } from '@/components/sections/AboutPreview'
+import { Marquee } from '@/components/sections/Marquee'
+import { ServicesGrid } from '@/components/sections/ServicesGrid'
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs'
-import { Process } from '@/components/sections/Process'
+import { ProcessSection } from '@/components/sections/ProcessSection'
+import { WorkShowcase } from '@/components/sections/WorkShowcase'
+import { TechStack } from '@/components/sections/TechStack'
+import { FAQSection } from '@/components/sections/FAQSection'
 import { CTASection } from '@/components/sections/CTASection'
+import { usePageMeta } from '@/hooks/usePageMeta'
 
 export default function Home() {
+  usePageMeta(
+    'YOLO Solutions',
+    'YOLO Solutions is a web and software development agency building websites, e-commerce stores, web and mobile apps and business automation for growing companies in India and worldwide.'
+  )
+
   return (
     <>
       <Hero />
-      <HomeServices />
-      <HomePortfolio />
-      <AboutPreview />
+      <Marquee />
+      <ServicesGrid />
       <WhyChooseUs />
-      <Process />
+      <WorkShowcase />
+      <ProcessSection />
+      <TechStack />
+      <FAQSection />
       <CTASection />
     </>
   )

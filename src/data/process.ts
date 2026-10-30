@@ -7,38 +7,38 @@ export interface ProcessStep {
 export const processSteps: ProcessStep[] = [
   {
     step: '01',
-    title: 'Requirement Discussion',
+    title: 'Discover',
     description:
-      'We start with a short call to understand your business, your customers, and what the website needs to achieve.',
+      'A short call to understand your business, your customers and what the project needs to achieve. You get a clear scope and a fair quote.',
   },
   {
     step: '02',
     title: 'Design',
     description:
-      'We design a clean, on-brand layout for your review before any code is written, so there are no surprises later.',
+      'We map the flow and design the key screens for your review before any code is written, so there are no surprises later.',
   },
   {
     step: '03',
-    title: 'Development',
+    title: 'Build',
     description:
-      'We build your site to be fast, responsive, and reliable across every device, from phones to desktops.',
+      'We develop in focused iterations, fast, responsive and reliable on every device, with a live preview you can open at any time.',
   },
   {
     step: '04',
     title: 'Review',
     description:
-      'You review the live preview, request changes, and confirm everything reads and works exactly as intended.',
+      'You test the live preview, request changes and confirm everything reads and works exactly as intended.',
   },
   {
     step: '05',
     title: 'Launch',
     description:
-      'We publish your website, connect your domain, and make sure everything is live and working correctly.',
+      'We deploy, connect your domain and verify everything works in production, then hand over what you need to run it.',
   },
   {
     step: '06',
     title: 'Support',
     description:
-      'We stay available after launch for updates, fixes, and questions — your site keeps running smoothly.',
+      'We stay available after launch for updates, fixes and new features, so your product keeps getting better.',
   },
 ]

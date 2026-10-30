@@ -1,41 +1,54 @@
-import { cn } from '@/lib/utils'
 import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
+import { cn } from '@/lib/utils'
 
-type Variant = 'primary' | 'secondary' | 'ghost'
+type Variant = 'primary' | 'accent' | 'outline' | 'glass' | 'secondary' | 'ghost'
+type Size = 'md' | 'lg'
 
 const variants: Record<Variant, string> = {
-  primary:
-    'bg-royal-500 text-white shadow-glow hover:bg-royal-600 hover:shadow-softLg',
+  primary: 'bg-brand-600 text-white shadow-lift hover:bg-brand-700',
+  accent: 'bg-gold-400 text-ink-900 shadow-gold hover:bg-gold-300',
+  outline: 'border border-white/25 text-white hover:border-white/50 hover:bg-white/10',
+  glass: 'liquid-glass text-white hover:bg-white/5',
   secondary:
-    'bg-white text-charcoal-800 border border-charcoal-100 hover:border-royal-300 hover:text-royal-600 shadow-soft',
-  ghost: 'text-charcoal-700 hover:text-royal-600',
+    'border border-ink-200 bg-white text-ink-800 shadow-soft hover:border-brand-300 hover:text-brand-600',
+  ghost: 'text-ink-700 hover:text-brand-600',
+}
+
+const sizes: Record<Size, string> = {
+  md: 'px-5 py-2.5 text-sm',
+  lg: 'px-7 py-3.5 text-[15px]',
 }
 
 interface ButtonProps {
   children: ReactNode
   variant?: Variant
+  size?: Size
   href?: string
   to?: string
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit'
+  disabled?: boolean
   icon?: ReactNode
 }
 
 export function Button({
   children,
   variant = 'primary',
+  size = 'md',
   href,
   to,
   onClick,
   className,
   type = 'button',
+  disabled,
   icon,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold',
-    'transition-all duration-200 ease-out active:scale-[0.98]',
+    'inline-flex items-center justify-center gap-2 rounded-full font-semibold',
+    'transition-all duration-200 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60',
+    sizes[size],
     variants[variant],
     className
   )
@@ -50,8 +63,14 @@ export function Button({
   }
 
   if (href) {
+    const external = href.startsWith('http')
     return (
-      <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className={classes}>
+      <a
+        href={href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noreferrer' : undefined}
+        className={classes}
+      >
         {children}
         {icon}
       </a>
@@ -59,7 +78,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
       {icon}
     </button>
