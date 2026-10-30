@@ -98,7 +98,7 @@ export function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden border-t border-ink-100 bg-white lg:hidden"
+            className="max-h-[calc(100svh-72px)] overflow-y-auto border-t border-ink-100 bg-white lg:hidden"
           >
             <Container className="flex flex-col gap-1 py-4">
               {navLinks.map((link) => (

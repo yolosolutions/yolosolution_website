@@ -29,7 +29,7 @@ export default function Services() {
               <Link
                 key={service.id}
                 to={`/services#${service.id}`}
-                className="liquid-glass rounded-full px-3.5 py-1.5 text-[13px] font-medium text-white/85 transition-colors hover:text-white"
+                className="liquid-glass rounded-full px-4 py-2.5 text-[13px] font-medium text-white/85 transition-colors hover:text-white"
               >
                 {service.title}
               </Link>

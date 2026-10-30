@@ -17,7 +17,7 @@ import { site } from '@/data/site'
 import { cn } from '@/lib/utils'
 
 const fieldClasses =
-  'w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-300 transition-colors focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100'
+  'w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-base text-ink-900 sm:text-sm placeholder:text-ink-300 transition-colors focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100'
 
 const labelClasses = 'mb-1.5 block text-sm font-medium text-ink-700'
 
@@ -182,7 +182,7 @@ export function ContactForm() {
                             aria-pressed={on}
                             onClick={() => toggle(label)}
                             className={cn(
-                              'inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-all duration-200 active:scale-95',
+                              'inline-flex items-center gap-1.5 rounded-full border px-4 py-2.5 text-[13px] font-medium transition-all duration-200 active:scale-95',
                               on
                                 ? 'border-brand-600 bg-brand-600 text-white shadow-lift'
                                 : 'border-ink-200 bg-white text-ink-700 hover:border-brand-300 hover:text-brand-600'

@@ -83,14 +83,14 @@ export function PageHeader({
           >
             <span className="font-mono text-gold-400">{index}</span>
             <span className="h-px w-6 bg-white/30" />
-            <Link to="/" className="transition-colors hover:text-white">
+            <Link to="/" className="-my-3 py-3 transition-colors hover:text-white">
               Home
             </Link>
             <span aria-hidden="true">/</span>
             <span className="text-white/85">{eyebrow}</span>
           </motion.nav>
 
-          <h1 className="text-balance font-display text-[clamp(2.3rem,4.9vw,4.3rem)] font-medium leading-[1.02] tracking-[-0.045em] text-white">
+          <h1 className="text-balance font-display text-[clamp(2.3rem,6.4vw,4.3rem)] lg:text-[clamp(2.3rem,4.9vw,4.3rem)] font-medium leading-[1.02] tracking-[-0.045em] text-white">
             <Words text={title} />
             {accent && <Words text={accent} accent offset={title.split(' ').length} />}
           </h1>
@@ -109,7 +109,7 @@ export function PageHeader({
           )}
         </div>
 
-        {visual && <div className="hidden lg:block">{visual}</div>}
+        {visual && <div className="hidden md:block">{visual}</div>}
       </Container>
 
       {/* curved sheet edge into the next section */}

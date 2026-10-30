@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container'
 import { services } from '@/data/services'
 import { navLinks, site } from '@/data/site'
 
-const linkClass = 'text-sm text-brand-100/70 transition-colors hover:text-gold-400'
+const linkClass = 'inline-block py-2.5 text-sm text-brand-100/70 transition-colors hover:text-gold-400'
 const headingClass = 'font-display text-xs font-semibold uppercase tracking-[0.14em] text-white'
 
 export function Footer() {
@@ -57,7 +57,7 @@ export function Footer() {
 
         <div className="lg:col-span-2">
           <h3 className={headingClass}>Company</h3>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-3">
             {navLinks.map((link) => (
               <li key={link.to}>
                 <Link to={link.to} className={linkClass}>
@@ -70,7 +70,7 @@ export function Footer() {
 
         <div className="lg:col-span-3">
           <h3 className={headingClass}>Services</h3>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-3">
             {services.slice(0, 6).map((service) => (
               <li key={service.id}>
                 <Link to={`/services#${service.id}`} className={linkClass}>
@@ -83,14 +83,14 @@ export function Footer() {
 
         <div className="lg:col-span-4">
           <h3 className={headingClass}>Get in touch</h3>
-          <ul className="mt-5 space-y-3.5 text-sm text-brand-100/70">
+          <ul className="mt-3 text-sm text-brand-100/70">
             <li>
-              <a href={`mailto:${site.email}`} className="flex items-center gap-2.5 transition-colors hover:text-gold-400">
+              <a href={`mailto:${site.email}`} className="flex items-center gap-2.5 py-2.5 transition-colors hover:text-gold-400">
                 <Mail className="h-4 w-4 shrink-0" /> <span>{site.email}</span>
               </a>
             </li>
             <li>
-              <a href={site.phoneHref} className="flex items-center gap-2.5 transition-colors hover:text-gold-400">
+              <a href={site.phoneHref} className="flex items-center gap-2.5 py-2.5 transition-colors hover:text-gold-400">
                 <Phone className="h-4 w-4 shrink-0" /> {site.phone}
               </a>
             </li>
@@ -99,7 +99,7 @@ export function Footer() {
                 href={site.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2.5 transition-colors hover:text-gold-400"
+                className="flex items-center gap-2.5 py-2.5 transition-colors hover:text-gold-400"
               >
                 <Instagram className="h-4 w-4 shrink-0" /> {site.instagramHandle}
               </a>
@@ -107,7 +107,7 @@ export function Footer() {
           </ul>
           <Link
             to="/contact"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-300"
+            className="mt-4 inline-flex items-center gap-1.5 py-2.5 text-sm font-semibold text-gold-400 hover:text-gold-300"
           >
             Start a project <ArrowUpRight className="h-4 w-4" />
           </Link>
@@ -121,7 +121,7 @@ export function Footer() {
       </div>
 
       <div className="relative border-t border-white/10 bg-brand-950">
-        <Container className="flex flex-col items-center justify-between gap-2 py-6 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-2 pb-24 pt-6 sm:flex-row xl:pb-6">
           <p className="text-xs text-brand-100/50">
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>

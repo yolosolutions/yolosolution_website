@@ -99,7 +99,7 @@ export function Hero() {
   return (
     <section
       onPointerMove={onPointerMove}
-      className="grain relative isolate flex h-svh min-h-[660px] flex-col overflow-hidden bg-brand-950"
+      className="grain relative isolate flex h-svh min-h-[620px] flex-col overflow-hidden bg-brand-950"
     >
       {/* Footage: top band on mobile so the sphere stays whole; full-bleed and shifted right on desktop so it clears the headline */}
       <motion.div
@@ -130,7 +130,7 @@ export function Hero() {
               Available for new projects
             </motion.p>
 
-            <h1 className="font-display text-[clamp(2.7rem,6.2vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.045em] text-white">
+            <h1 className="font-display text-[clamp(2.7rem,7.2vw,5.6rem)] lg:text-[clamp(2.7rem,6.2vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.045em] text-white">
               <span className="sr-only">
                 We build websites, web apps, mobile apps, online stores and automations that grow your business.
               </span>

@@ -37,7 +37,7 @@ export function GlobeSection() {
                   <dd className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
                     {fact.value}
                   </dd>
-                  <dt className="mt-1 text-[11px] uppercase tracking-[0.14em] text-white/50">{fact.label}</dt>
+                  <dt className="mt-1 text-xs uppercase tracking-[0.14em] text-white/50">{fact.label}</dt>
                 </div>
               ))}
             </dl>
