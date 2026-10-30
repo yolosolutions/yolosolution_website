@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/Hero'
 import { Marquee } from '@/components/sections/Marquee'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'
+import { ThreeDShowcase } from '@/components/sections/ThreeDShowcase'
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs'
 import { ProcessSection } from '@/components/sections/ProcessSection'
 import { WorkShowcase } from '@/components/sections/WorkShowcase'
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <ServicesGrid />
+      <ThreeDShowcase />
       <WhyChooseUs />
       <WorkShowcase />
       <ProcessSection />

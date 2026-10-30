@@ -2,7 +2,7 @@ import { Compass, Eye, ShieldCheck, Zap } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { CountUp } from '@/components/ui/CountUp'
+import { GlobeSection } from '@/components/sections/GlobeSection'
 import { site } from '@/data/site'
 
 const values = [
@@ -30,13 +30,6 @@ const values = [
     description:
       'We build with the future in mind, so your product can scale and adapt as your business does.',
   },
-]
-
-const facts = [
-  { value: <CountUp to={parseInt(site.projectsCompleted, 10)} suffix="+" />, label: 'Projects delivered' },
-  { value: <>{site.founded}</>, label: 'Year established' },
-  { value: <CountUp to={8} />, label: 'Core services' },
-  { value: <>Global</>, label: 'Client reach' },
 ]
 
 export function AboutContent() {
@@ -67,18 +60,7 @@ export function AboutContent() {
         </Container>
       </section>
 
-      <section className="bg-brand-950 py-14">
-        <Container>
-          <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {facts.map((fact, index) => (
-              <Reveal key={fact.label} delay={index * 0.06} className="text-center">
-                <dd className="font-display text-4xl font-extrabold text-gold-400 sm:text-5xl">{fact.value}</dd>
-                <dt className="mt-1.5 text-sm text-brand-100/70">{fact.label}</dt>
-              </Reveal>
-            ))}
-          </dl>
-        </Container>
-      </section>
+      <GlobeSection />
 
       <section className="bg-ink-50 py-16 sm:py-24">
         <Container>
