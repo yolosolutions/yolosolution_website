@@ -1,10 +1,7 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 
-/** Scrolls to the top on route change, or to the `#hash` target when one is given. */
-export function ScrollToTop() {
-  const { pathname, hash } = useLocation()
-
+/** Scrolls to the top when the shown page changes, or to the `#hash` target when one is given. */
+export function ScrollToTop({ pathname, hash }: { pathname: string; hash: string }) {
   useEffect(() => {
     if (hash) {
       // wait a frame so the target page has rendered
