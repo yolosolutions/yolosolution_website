@@ -1,4 +1,5 @@
 import { PageHeader } from '@/components/sections/PageHeader'
+import { DesignBoard } from '@/components/sections/headerVisuals'
 import { AboutContent } from '@/components/sections/AboutContent'
 import { TechStack } from '@/components/sections/TechStack'
 import { CTASection } from '@/components/sections/CTASection'
@@ -14,8 +15,11 @@ export default function About() {
     <>
       <PageHeader
         eyebrow="About us"
-        title="The team behind your next digital product"
+        index="03"
+        title="The team behind"
+        accent="your next digital product."
         description="A small, focused agency that builds with care, communicates clearly and stays with you after launch."
+        visual={<DesignBoard />}
       />
       <AboutContent />
       <TechStack />

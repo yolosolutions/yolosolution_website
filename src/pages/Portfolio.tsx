@@ -1,5 +1,6 @@
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { PageHeader } from '@/components/sections/PageHeader'
+import { ConceptDevices } from '@/components/sections/headerVisuals'
 import { ProjectCard } from '@/components/sections/ProjectCard'
 import { CTASection } from '@/components/sections/CTASection'
 import { Container } from '@/components/ui/Container'
@@ -18,8 +19,11 @@ export default function Portfolio() {
     <>
       <PageHeader
         eyebrow="Our work"
-        title="Projects we're proud to put our name on"
+        index="02"
+        title="Projects we're proud to"
+        accent="put our name on."
         description="Real websites, live on the web and working for the businesses behind them."
+        visual={<ConceptDevices />}
       />
 
       <section className="bg-white py-16 sm:py-24">
