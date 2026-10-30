@@ -2,6 +2,7 @@ import { Compass, Eye, ShieldCheck, Zap } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { CountUp } from '@/components/ui/CountUp'
 import { site } from '@/data/site'
 
 const values = [
@@ -32,10 +33,10 @@ const values = [
 ]
 
 const facts = [
-  { value: site.projectsCompleted, label: 'Projects delivered' },
-  { value: String(site.founded), label: 'Year established' },
-  { value: '8', label: 'Core services' },
-  { value: 'Global', label: 'Client reach' },
+  { value: <CountUp to={parseInt(site.projectsCompleted, 10)} suffix="+" />, label: 'Projects delivered' },
+  { value: <>{site.founded}</>, label: 'Year established' },
+  { value: <CountUp to={8} />, label: 'Core services' },
+  { value: <>Global</>, label: 'Client reach' },
 ]
 
 export function AboutContent() {

@@ -23,7 +23,7 @@ export function TechStack() {
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-lg border border-ink-200 bg-ink-50 px-3 py-1.5 text-sm font-medium text-ink-700"
+                      className="cursor-default rounded-lg border border-ink-200 bg-ink-50 px-3 py-1.5 text-sm font-medium text-ink-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
                     >
                       {item}
                     </span>

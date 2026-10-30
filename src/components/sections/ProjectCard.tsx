@@ -1,10 +1,34 @@
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowUpRight, Check } from 'lucide-react'
 import { Reveal } from '@/components/ui/Reveal'
 import type { Project } from '@/data/portfolio'
+import { useFinePointer } from '@/hooks/useFinePointer'
 import { cn } from '@/lib/utils'
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const flip = index % 2 === 1
+  const fine = useFinePointer()
+  const mx = useMotionValue(0)
+  const my = useMotionValue(0)
+  const sx = useSpring(mx, { stiffness: 140, damping: 18 })
+  const sy = useSpring(my, { stiffness: 140, damping: 18 })
+  const rotateY = useTransform(sx, [-0.5, 0.5], [-9, 9])
+  const rotateX = useTransform(sy, [-0.5, 0.5], [7, -7])
+  const glare = useTransform([sx, sy], ([x, y]: number[]) =>
+    `radial-gradient(circle at ${(x + 0.5) * 100}% ${(y + 0.5) * 100}%, rgba(255,255,255,0.55), transparent 55%)`
+  )
+
+  function onMove(e: React.PointerEvent<HTMLElement>) {
+    if (!fine) return
+    const r = e.currentTarget.getBoundingClientRect()
+    mx.set((e.clientX - r.left) / r.width - 0.5)
+    my.set((e.clientY - r.top) / r.height - 0.5)
+  }
+  function onLeave() {
+    mx.set(0)
+    my.set(0)
+  }
+
   return (
     <Reveal>
       <article className="grid grid-cols-1 overflow-hidden rounded-3xl border border-ink-200 bg-white shadow-soft transition-shadow duration-300 hover:shadow-lift lg:grid-cols-2">
@@ -13,21 +37,37 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           target="_blank"
           rel="noreferrer"
           aria-label={`Visit ${project.name}`}
+          onPointerMove={onMove}
+          onPointerLeave={onLeave}
           className={cn(
-            'group relative flex min-h-[280px] items-center justify-center overflow-hidden p-8 sm:p-12',
+            'group relative flex min-h-[280px] items-center justify-center overflow-hidden p-8 [perspective:900px] sm:p-12',
             project.surface,
             flip && 'lg:order-2'
           )}
         >
           <div className="pointer-events-none absolute inset-0 bg-grid-light bg-grid opacity-60" />
-          <img
-            src={project.image}
-            alt={`${project.name} project artwork`}
-            loading="lazy"
-            className="relative max-h-64 w-full object-contain transition-transform duration-500 group-hover:scale-105"
+          <motion.div style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }} className="relative w-full">
+            <img
+              src={project.image}
+              alt={`${project.name} project artwork`}
+              loading="lazy"
+              className="max-h-64 w-full object-contain transition-transform duration-500 group-hover:scale-105"
+            />
+          </motion.div>
+          <motion.span
+            aria-hidden="true"
+            style={{ background: glare }}
+            className="pointer-events-none absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-300 group-hover:opacity-100"
           />
           <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-semibold text-emerald-700 shadow-soft">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Live
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            </span>
+            Live
+          </span>
+          <span className="absolute bottom-4 right-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-brand-600 text-white opacity-0 shadow-lift transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            <ArrowUpRight className="h-4 w-4" />
           </span>
         </a>
 

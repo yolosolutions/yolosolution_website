@@ -9,6 +9,7 @@ import {
   Phone,
   Send,
 } from 'lucide-react'
+import { Logo } from '@/components/icons/Logo'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
 import { services } from '@/data/services'
@@ -32,6 +33,9 @@ const contactLinks = [
 export function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errors, setErrors] = useState<Errors>({})
+  const [picked, setPicked] = useState<string[]>([])
+  const toggle = (label: string) =>
+    setPicked((p) => (p.includes(label) ? p.filter((x) => x !== label) : [...p, label]))
 
   function validate(data: FormData): Errors {
     const next: Errors = {}
@@ -163,20 +167,34 @@ export function ContactForm() {
                     </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="service" className={labelClasses}>
-                      What do you need?
-                    </label>
-                    <select id="service" name="service" defaultValue="" className={fieldClasses}>
-                      <option value="">Select a service (optional)</option>
-                      {services.map((s) => (
-                        <option key={s.id} value={s.title}>
-                          {s.title}
-                        </option>
-                      ))}
-                      <option value="Not sure yet">Not sure yet, need advice</option>
-                    </select>
-                  </div>
+                  <fieldset>
+                    <legend className={labelClasses}>
+                      What do you need? <span className="font-normal text-ink-400">(pick any)</span>
+                    </legend>
+                    <input type="hidden" name="service" value={picked.join(', ')} />
+                    <div className="flex flex-wrap gap-2">
+                      {[...services.map((s) => s.title), 'Not sure yet'].map((label) => {
+                        const on = picked.includes(label)
+                        return (
+                          <button
+                            key={label}
+                            type="button"
+                            aria-pressed={on}
+                            onClick={() => toggle(label)}
+                            className={cn(
+                              'inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-all duration-200 active:scale-95',
+                              on
+                                ? 'border-brand-600 bg-brand-600 text-white shadow-lift'
+                                : 'border-ink-200 bg-white text-ink-700 hover:border-brand-300 hover:text-brand-600'
+                            )}
+                          >
+                            {on && <CheckCircle2 className="h-3.5 w-3.5" />}
+                            {label}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </fieldset>
 
                   <div>
                     <label htmlFor="message" className={labelClasses}>
@@ -225,6 +243,7 @@ export function ContactForm() {
           <div className="relative h-full overflow-hidden rounded-3xl bg-brand-950 p-7 text-white sm:p-10">
             <div className="glow-blue pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-60" />
             <div className="relative">
+              <Logo tone="light" className="mb-6 h-12" />
               <h3 className="font-display text-xl font-bold">Prefer to talk directly?</h3>
               <p className="mt-2 text-sm leading-relaxed text-brand-100/75">
                 Pick whichever channel suits you. WhatsApp is usually the fastest.

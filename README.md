@@ -42,12 +42,24 @@ The form posts to **Netlify Forms** (form name `contact`, with a honeypot field)
 the form in `index.html` must list the same field names as `ContactForm.tsx`
 (`name`, `business`, `email`, `phone`, `service`, `message`, `bot-field`).
 
-## Brand tokens
+## Brand tokens & logo
 
-Defined in `tailwind.config.ts`, sampled from the logo: `brand` (logo blue `#004AAD`),
-`gold` (logo gold `#FFBD59`) and `ink` (blue-tinted neutrals). Logo files in `public/`:
-`logo.png` (original), `logo-mark.png` (tight crop for light backgrounds), `logo-light.png`
-(for dark backgrounds).
+Colours are defined in `tailwind.config.ts`, sampled from the logo: `brand` (logo blue `#004AAD`),
+`gold` (logo gold `#FFBD59`) and `ink` (blue-tinted neutrals).
+
+The logo is a true vector, rebuilt from the original 500px `logo.png` (`tools/build_logo.py`):
+
+- `src/components/icons/Logo.tsx`: the logo as inline SVG (`tone="color"` for white surfaces,
+  `tone="light"` for navy; `animated` plays the assemble animation used by the splash screen).
+- `public/logo.svg`, `public/logo-light.svg`: standalone vectors for any use.
+- `public/logo-4k.png`, `public/logo-light-4k.png`: 3840px transparent PNGs for print, decks and social.
+- `public/favicon.svg` plus PNG icons, and `public/og-image.png` for link previews.
+
+## Motion & interaction
+
+Splash intro (once per session), rotating hero word, magnetic buttons, pointer parallax, scroll progress
+bar, back-to-top ring, word-by-word headings, spotlight cards, 3D-tilt project previews and count-ups.
+All of it respects `prefers-reduced-motion`, and pointer effects are skipped on touch devices.
 
 ## Project structure
 

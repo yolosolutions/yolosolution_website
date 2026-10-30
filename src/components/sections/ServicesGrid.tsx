@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { services } from '@/data/services'
+import { spotlight } from '@/hooks/useSpotlight'
 
 export function ServicesGrid() {
   return (
@@ -21,14 +22,20 @@ export function ServicesGrid() {
             <Reveal key={service.id} delay={(index % 4) * 0.06}>
               <Link
                 to={`/services#${service.id}`}
+                onMouseMove={spotlight}
                 className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-ink-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lift"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{ background: 'radial-gradient(280px circle at var(--mx) var(--my), rgba(0,74,173,0.10), transparent 70%)' }}
+                />
+                <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white">
                   <service.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-ink-900">{service.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-500">{service.summary}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
+                <h3 className="relative font-display text-lg font-bold text-ink-900">{service.title}</h3>
+                <p className="relative mt-2 flex-1 text-sm leading-relaxed text-ink-500">{service.summary}</p>
+                <span className="relative mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
                   Learn more
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>

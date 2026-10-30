@@ -15,7 +15,13 @@ export function Footer() {
 
       <Container className="relative grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-3">
-          <Logo onDark className="h-14" />
+          <Link
+            to="/"
+            aria-label="YOLO Solutions home"
+            className="inline-flex rounded-2xl bg-white px-5 py-3 shadow-float transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
+          >
+            <Logo tone="color" className="h-14 sm:h-16" />
+          </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-brand-100/70">
             A digital agency building websites, web &amp; mobile applications and smart automation for
             businesses in India and worldwide.
@@ -108,7 +114,13 @@ export function Footer() {
         </div>
       </Container>
 
-      <div className="relative border-t border-white/10">
+      <div aria-hidden="true" className="relative -mb-[3.2vw] select-none overflow-hidden px-4 text-center">
+        <span className="block bg-gradient-to-b from-white/25 to-transparent bg-clip-text font-display text-[27vw] font-extrabold leading-[0.82] tracking-[-0.06em] text-transparent">
+          YOLO
+        </span>
+      </div>
+
+      <div className="relative border-t border-white/10 bg-brand-950">
         <Container className="flex flex-col items-center justify-between gap-2 py-6 sm:flex-row">
           <p className="text-xs text-brand-100/50">
             © {new Date().getFullYear()} {site.name}. All rights reserved.

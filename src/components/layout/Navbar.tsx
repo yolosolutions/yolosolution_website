@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Logo } from '@/components/icons/Logo'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { Magnetic } from '@/components/ui/Magnetic'
 import { navLinks } from '@/data/site'
 import { cn } from '@/lib/utils'
 
@@ -39,7 +40,7 @@ export function Navbar() {
     >
       <Container className="flex h-[72px] items-center justify-between">
         <NavLink to="/" aria-label="YOLO Solutions home">
-          <Logo onDark={!light} />
+          <Logo tone={light ? 'color' : 'light'} />
         </NavLink>
 
         <nav
@@ -73,9 +74,11 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button to="/contact" variant={light ? 'primary' : 'accent'}>
-            Start a Project
-          </Button>
+          <Magnetic strength={0.25}>
+            <Button to="/contact" variant={light ? 'primary' : 'accent'}>
+              Start a Project
+            </Button>
+          </Magnetic>
         </div>
 
         <button
