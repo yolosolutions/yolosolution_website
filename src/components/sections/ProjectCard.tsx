@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowUpRight, Check } from 'lucide-react'
+import { ProjectPreview } from '@/components/sections/ProjectPreview'
 import { Reveal } from '@/components/ui/Reveal'
 import type { Project } from '@/data/portfolio'
 import { useFinePointer } from '@/hooks/useFinePointer'
@@ -47,12 +48,9 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         >
           <div className="pointer-events-none absolute inset-0 bg-grid-light bg-grid opacity-60" />
           <motion.div style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }} className="relative w-full">
-            <img
-              src={project.image}
-              alt={`${project.name} project artwork`}
-              loading="lazy"
-              className="max-h-64 w-full object-contain transition-transform duration-500 group-hover:scale-105"
-            />
+            <div className="transition-transform duration-500 group-hover:scale-[1.03]">
+              <ProjectPreview project={project} />
+            </div>
           </motion.div>
           <motion.span
             aria-hidden="true"
